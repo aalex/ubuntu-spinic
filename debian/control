@@ -1,0 +1,41 @@
+Source: spinic
+Section: net
+Priority: optional
+Maintainer: Alexandre Quessy <alexandre@quessy.net>
+Build-Depends:
+ automake,
+ bison,
+ cdbs,
+ debhelper (>= 6),
+ help2man,
+ python (>= 2.6),
+ python-gtk2,
+ python-twisted-core,
+ lunch (>= 0.3.2),
+ scenic-utils (>= 0.6.2),
+ python-txosc (>= 0.1.3),
+ jack-tools (>= 0.0.2)
+Standards-Version: 3.8.4
+Homepage: http://scenic.sat.qc.ca/
+
+Package: spinic
+Architecture: all
+Depends:
+ ${misc:Depends},
+ jack-tools (>= 0.0.2),
+ jackd,
+ lunch (>= 0.3.2),
+ python (>= 2.6),
+ python-gtk2,
+ python-twisted-core,
+ python-txosc (>= 0.1.3),
+ scenic-utils (>= 0.6.2)
+Recommends:
+ qjackctl
+Description: launcher for SPIN and Scenic utils
+ In a 3D scene created with the SPIN framework, people can meet 
+ and see each other using DC cameras.
+ .
+ Note: It also needs spinframework (>= 0.3.3) and OpenSceneGraph
+ as well as osgIntrospection.
+ 

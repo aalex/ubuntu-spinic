@@ -1,0 +1,43 @@
+This work was packaged for Debian by:
+
+    Alexandre Quessy <alexandre@quessy.net> on Tue, 25 May 2010 11:50:58 -0400
+
+Upstream Author(s):
+
+    Alexandre Quessy <alexandre@quessy.net>
+    Tristan Matthews <tristan@sat.qc.ca>
+
+Copyright:
+
+    Copyright (C) 2010 Société des arts technologiques (SAT)
+
+License:
+
+    Spinic
+    Copyright (C) 2010 Société des arts technologiques (SAT)
+    http://www.sat.qc.ca
+    All rights reserved.
+
+    This file is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    Scenic is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Scenic. If not, see <http://www.gnu.org/licenses/>.
+
+    On Debian systems the full text of the GNU General Public License version 3
+    can be found in the `/usr/share/common-licenses/GPL-3' file.
+
+The Debian packaging is:
+
+    Copyright (C) 2010 Alexandre Quessy <alexandre@quessy.net>
+
+and is licensed under the GPL version 3,
+see `/usr/share/common-licenses/GPL-3'.
+
