@@ -1,0 +1,19 @@
+{
+    "receiveraddress": "10.21.10.16", 
+    "videosource": "dc1394src", 
+    "videocodec": "h263", 
+    "videobitrate": 75000, 
+    "framerate": 15, 
+    "grayscale": true, 
+    "width": 640, 
+    "height": 480, 
+    "display": ":0.0", 
+    "user_audio_src": 1,
+    "audio_outputs_layout": "stereo",
+    "send_audio_port": 10000,
+    "cameras": [
+        "81443610264e5e3@10.21.10.25:16010", 
+        "81443610264df4e@10.21.10.25:16020",
+        "81443610264df80@10.21.10.25:16030"
+    ]
+}

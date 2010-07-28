@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ $# -ne 1 ]; then 
+    echo "Usage: $0 <sceneID>"
+    echo "Number of arguments: " $#
+    exit 1
+fi
+SCENEID=$1
+PORT=54324
+
+echo PORT=${PORT}
+echo SCENEID=${SCENEID}
+OSCURL=osc.udp://226.0.0.1:${PORT}
+
+set -o verbose
+
+osc-send ${OSCURL} /SPIN/${SCENEID} refresh
+osc-send ${OSCURL} /SPIN/${SCENEID} userRefresh

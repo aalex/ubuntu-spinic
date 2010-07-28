@@ -1,0 +1,43 @@
+Dependencies
+------------
+
+ * python >= 2.6
+ * lunch (>= 0.3.2)
+ * scenic-utils (>= 0.6.2)
+ * python-gtk2
+ * python-twisted-core
+ * python-txosc (>= 0.1.3)
+ * spinframework (>= 0.3.3)
+ * jack-tools (>= 0.0.2)
+ * jackd
+
+Most of those can be found on SAT's Metalab PPA for Ubuntu Lucid.
+
+
+Compatibility with SPIN
+-----------------------
+
+It is meant to work with the SPIN framework but does not require it for the compilation nor does it need it to be installed on the same computer. It will parse is include/spinFramework/spinDefaults.h file though, if present.
+
+
+Installation
+------------
+
+Type this:
+
+ ./autogen.sh
+ ./configure
+ make 
+ sudo make install
+
+
+Install on Ubuntu GNU/Linux
+---------------------------
+
+Some of its dependencies are on the SAT Metalab archive for Ubuntu GNU/Linux. 
+Here is how to install them easily:
+
+ sudo add-apt-repository ppa:sat-metalab/metalab
+ sudo apt-get update
+ sudo apt-get install scenic lunch python-txosc
+

@@ -1,0 +1,27 @@
+#!/bin/bash
+if [ $# -ne 1 ]; then 
+    echo "Usage: $0 <avatar ID>"
+    echo "Number of argumens: " $#
+    exit 1
+fi
+AVATARNAME=$1
+PORT=54324
+SCENENAME=spinicscene
+
+echo AVATARNAME=${AVATARNAME}
+echo PORT=${PORT}
+echo SCENENAME=${SCENENAME}
+OSCURL=osc.udp://226.0.0.1:${PORT}
+MODELPATH=~/src/postures/trunk/prototypes/avatar.osg #FIXME
+
+set -o verbose
+
+osc-send ${OSCURL} /SPIN/${SCENENAME} createNode ${AVATARNAME} UserNode
+osc-send ${OSCURL} /SPIN/${SCENENAME} createNode ${AVATARNAME}_model_id ModelNode
+sleep 0.1
+osc-send ${OSCURL} /SPIN/${SCENENAME}/${AVATARNAME} setTranslation 0.0 15 1.5
+osc-send ${OSCURL} /SPIN/${SCENENAME}/${AVATARNAME} setOrientation 0 0 180
+osc-send ${OSCURL} /SPIN/${SCENENAME}/${AVATARNAME}_model_id setParent ${AVATARNAME}
+osc-send ${OSCURL} /SPIN/${SCENENAME}/${AVATARNAME}_model_id setModelFromFile ${MODELPATH}
+osc-send ${OSCURL} /SPIN/${SCENENAME}/${AVATARNAME}_model_id setTranslation 0 0 0
+

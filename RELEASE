@@ -1,0 +1,8 @@
+
+Version 0.1.1 - 2010-07-28
+    
+    This is the second release of spinic! It is still much alpha.
+    
+    New features:
+        * Launches Pure Data for some audio rendering.
+

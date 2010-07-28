@@ -1,0 +1,8 @@
+Things to do
+------------
+
+ * Change the multicast group to 239.0.0.1 when SPIN changes to it.
+ * delete my own state sets when leaving
+ * multicast senders/receivers 239.0.0.1
+ * color/size fix for cameras in milhouse
+

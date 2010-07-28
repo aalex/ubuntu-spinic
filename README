@@ -1,0 +1,44 @@
+Spinic integrates SPIN and Scenic
+
+
+Configuration
+-------------
+
+The path to the config file is ~/.spinic.json
+
+To use Spinic with cameras, create a config file, by copying the example config file and modifying it. Make sure you properly set the camera ID in the config file. Spinic supports DC cameras, launching milhouse on-demand. A SPIN server must be already running in the LAN. You need to manually choose a SPIN server at startup. (we will soon be able to set one with a command-line option)
+
+IMPORTANT: The port numbers MUST be different in each config file. It's the port to which the local host sends the video stream to each other user's receiver host.
+
+
+How it works
+------------
+
+Spinic connected to the SPIN server, makes sure the UserNode node of its spinviewer exists, sets its params to give it information about the cameras. It then listens for other existing UserNode nodes. When it finds a new one, it creates some billboard for it. (only seen in its spinviewer's context) It also creates a stateSet for the billboard, whose state can be of any of the camera feed texture that this user sends.
+
+
+To do
+-----
+
+We will soon send the video using multicast.
+
+
+Files list
+----------
+
+Here is the list of important Python files to edit. They are in the spinic directory. (which is a Python package)
+
+ * audioconnector.py : Manages JACK connections for Spinic
+ * cameras.py : Manages the DC cameras and parses the config file.
+ * gui.py : GTK GUI with Gtk Builder
+ * launching.py : Uses Lunch to launch processes 
+ * osc.py : OSC handlers and senders for Spinic
+ * runner.py : command-line options parser, general configuration and app class.
+ * plumberjack.py : dynamically generates the config for jack.plumbing (generic)
+ * spindefaults.py : parses /usr/include/spinFramework/spinDefaults.h
+
+The following files could be created: (splitting existing ones)
+
+ * application.py
+ * configuration.py
+
