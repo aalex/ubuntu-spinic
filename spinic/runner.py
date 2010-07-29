@@ -31,8 +31,6 @@ if not os.environ.has_key("DISPLAY"):
     sys.exit(1)
 from twisted.internet import reactor
 from twisted.internet import defer
-import spinic # for __version__
-from spinic.launching import ProcessLauncher
 from spinic import spindefaults
 
 DEFAULT_CAMERAS_CONFIG_FILE = "~/.spinic.json"
@@ -75,7 +73,7 @@ class Application(object):
         """
         Called only once at startup.
         """
-        config = self.config
+        from spinic.launching import ProcessLauncher
         try:
             self.launcher = ProcessLauncher(app=self)
             # Logging has started in lunch after this point.
@@ -126,27 +124,18 @@ def _exit_with_error(error_message):
     sys.exit(1)
 
 
-def run(datadir=None):
+def run(datadir=None, version=None):
     """
     Reads the command-line options, instanciates the application and runs the reactor.
     """
     # Instanciate the Configuration object:
     #FIXME:2010-07-28:aalex:Should not print anything before parsing command-line options
     config = Configuration()
-    defaults = spindefaults.read_spin_defaults()
-    print("Welcome to Spinic!")
-    if defaults is None:
-        print("Could not read SPIN defaults.")
-    else:
-        print("Found SPIN defaults: %s" % (defaults))
-        config.info_port = defaults["INFO_UDP_PORT"]
-        config.info_multicast_group = defaults["MULTICAST_GROUP"]
-    
     # parse command-line options:
     import optparse
-    parser = optparse.OptionParser(usage="%prog", version=spinic.__version__, description=__doc__)
-    parser.add_option("-p", "--info-port", type="int", default=config.info_port, help="SPIN info channel port to listen on")
-    parser.add_option("-g", "--info-multicast-group", type="string", default=config.info_multicast_group, help="Multicast group to listen on for the SPIN info channel")
+    parser = optparse.OptionParser(usage="%prog", version=version, description=__doc__)
+    parser.add_option("-p", "--info-port", type="int", help="SPIN info channel port to listen on")
+    parser.add_option("-g", "--info-multicast-group", type="string", help="Multicast group to listen on for the SPIN info channel")
     parser.add_option("-v", "--verbose", action="store_true", help="Makes the logging output verbose.")
     parser.add_option("-d", "--debug", action="store_true", help="Makes the logging output very verbose.")
     parser.add_option("-u", "--user-id", type="string", help="SPIN user ID for the spinviewer it launches. Defaults to the host name.")
@@ -157,6 +146,15 @@ def run(datadir=None):
     parser.add_option("-F", "--disable-firereset", action="store_true", help="If not provided, Spinic calls firereset at startup")
     parser.add_option("-b", "--banner", type="string", help="Provides a path to an image file to be displayed as a banner.")
     (options, args) = parser.parse_args()
+    
+    defaults = spindefaults.read_spin_defaults()
+    print("Welcome to Spinic!")
+    if defaults is None:
+        print("Could not read SPIN defaults.")
+    else:
+        print("Found SPIN defaults: %s" % (defaults))
+        config.info_port = defaults["INFO_UDP_PORT"]
+        config.info_multicast_group = defaults["MULTICAST_GROUP"]
     
     # store it in the Configuration object:
     if options.user_id:
@@ -174,8 +172,10 @@ def run(datadir=None):
     config.verbose = options.verbose
     config.data_directory = datadir
     config.debug = options.debug
-    config.info_port = options.info_port
-    config.info_multicast_group = options.info_multicast_group
+    if options.info_port:
+        config.info_port = options.info_port
+    if options.info_multicast_group:
+        config.info_multicast_group = options.info_multicast_group
     config.show_puredata_gui = options.show_puredata_gui
     config.clear_old_shared_memory_files = not options.disable_shared_memory_deletion
     config.enable_firereset = not options.disable_firereset

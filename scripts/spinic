@@ -7,11 +7,11 @@ spinic.in is parsed by autoconf to create the executable.
 import os
 import sys
 
-VERSION = "@PACKAGE_VERSION@"
-PACKAGE_NAME = """@PACKAGE_NAME@"""
-LIBDIR = """@LIBDIR@"""
+VERSION = "0.1.2"
+PACKAGE_NAME = """SPINIC"""
+LIBDIR = """/usr/local/lib"""
 SCRIPTS_DIR = "scripts"
-DATADIR = """@DATADIR@/spinic"""
+DATADIR = """/usr/local/share/spinic"""
 
 def _is_in_devel():
     d = os.path.split(os.path.dirname(os.path.abspath(__file__)))[1]
