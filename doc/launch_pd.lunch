@@ -1,1 +1,0 @@
-add_command("pd -jack -inchannels 8 -outchannels 4 -send \"pd dsp 1\"", identifier="puredata") # -nogui

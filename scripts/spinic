@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Main executable.
+spinic.in is parsed by autoconf to create the executable.
+"""
+import os
+import sys
+
+VERSION = "0.1.2"
+PACKAGE_NAME = """SPINIC"""
+LIBDIR = """/usr/local/lib"""
+SCRIPTS_DIR = "scripts"
+DATADIR = """/usr/local/share/spinic"""
+
+def _is_in_devel():
+    d = os.path.split(os.path.dirname(os.path.abspath(__file__)))[1]
+    return d == SCRIPTS_DIR
+
+if __name__ == "__main__":
+    if _is_in_devel():
+        d = os.path.split(os.path.dirname(os.path.abspath(__file__)))[0]
+        sys.path.insert(0, d)
+        DATADIR = os.path.join(d, "data")
+    from spinic import runner
+    runner.run(datadir=DATADIR, version=VERSION)
+

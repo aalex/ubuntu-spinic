@@ -1,2 +1,0 @@
-#!/bin/bash
-osc-receive -g 226.0.0.1 -p 54320
