@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT(SPINIC, 0.1.1)  # should always be .1 greater than last tag, unless this is a tag
+AC_INIT(SPINIC, 0.1.2)  # should always be .1 greater than last tag, unless this is a tag
 #AC_CONFIG_HEADER([src/config.h])
 AC_CONFIG_MACRO_DIR([m4])
 dnl AC_PROG_LIBTOOL
@@ -52,8 +52,8 @@ fi
 
 AX_PYTHON_MODULE([twisted], [Fatal])
 AX_PYTHON_MODULE([gtk], [Fatal])
-AX_PYTHON_MODULE([lunch], [Fatal])
-AX_PYTHON_MODULE([txosc], [Fatal])
+# AX_PYTHON_MODULE([lunch], [Fatal])
+# AX_PYTHON_MODULE([txosc], [Fatal])
 
 AM_CONDITIONAL([PROJ_DEBUG],test "x${enable_debug}" = "xyes")
 
