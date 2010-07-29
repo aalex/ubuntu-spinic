@@ -1,4 +1,0 @@
-[EXAMPLES]
-
-spinic -v
-
