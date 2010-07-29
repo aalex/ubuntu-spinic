@@ -1,4 +1,13 @@
 
+Version 0.1.2 - 2010-07-29
+    
+    This is the third release of spinic! It is still much alpha.
+    
+    New features:
+        * Improved --help and --version options
+        * No need for lunch or txosc to build
+
+
 Version 0.1.1 - 2010-07-28
     
     This is the second release of spinic! It is still much alpha.

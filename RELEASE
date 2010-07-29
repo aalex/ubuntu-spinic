@@ -1,0 +1,8 @@
+
+Version 0.1.3 - 2010-07-29
+    
+    This is the fourth release of spinic! It is still much alpha.
+    
+    Bugs fixed:
+        * Fixed make dist
+
