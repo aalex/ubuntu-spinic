@@ -8,8 +8,8 @@ spinic_PYTHON = \
 	launching.py \
 	osc.py \
 	plumberjack.py \
-	spindefaults.py \
-	runner.py
+	runner.py \
+	spindefaults.py
 
 clean-local:
 	rm -rf *.pyc

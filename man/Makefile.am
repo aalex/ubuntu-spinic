@@ -1,5 +1,5 @@
 man_MANS = spinic.1
-EXTRA_DIST = $(man_MANS)
+EXTRA_DIST = $(man_MANS) man-spinic.txt
 MAINTAINERCLEANFILES = $(man_MANS)
 
 # The man pages depend on the --help strings and the version number.

@@ -7,7 +7,7 @@ spinic.in is parsed by autoconf to create the executable.
 import os
 import sys
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 PACKAGE_NAME = """SPINIC"""
 LIBDIR = """/usr/local/lib"""
 SCRIPTS_DIR = "scripts"
